@@ -47,7 +47,7 @@ Love, qash ♥`,
   photos: [
     { file: "photos/matildabay.jpg", caption: "Us" },
     { file: "photos/dinner.jpg", caption: "Cutiee dinner" },
-    { file: "photos/iceskating.jpg", caption: "Freezing fun" },
+    { file: "photos/iceksating.jpg", caption: "Freezing fun" },
     { file: "photos/kangaroos.jpg", caption: "Adventures" },
     { file: "photos/silly.jpg", caption: "Silly us" },
     { file: "photos/minigolf.jpg", caption: "Minigolf!" }
