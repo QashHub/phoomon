@@ -3,7 +3,13 @@ var LETTER = CONFIG.letter;
 
 var $ = function(s){return document.querySelector(s)};
 $('#nm').textContent = NAME;
-var LETTER_HTML = LETTER.map(function(l){return '<p>'+l+'</p>'}).join('');
+var LETTER_HTML = (Array.isArray(LETTER) ? LETTER.join('\n\n') : LETTER)
+  .trim()
+  .split(/\n\s*\n/)
+  .map(function(p){
+    return '<p>' + p.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>') + '</p>';
+  })
+  .join('');
 $('#letter').innerHTML = LETTER_HTML;
 $('#sheet').innerHTML = LETTER_HTML;
 var seen = {};
