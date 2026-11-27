@@ -78,19 +78,19 @@ body::before{
   content:"";position:fixed;inset:0;z-index:-1;
   background:
     linear-gradient(rgba(255,246,249,.55),rgba(255,246,249,.55)),
-    url("photos/background.jpg") center / cover no-repeat;
+    url("photos/background0.jpg") center / cover no-repeat;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) body::before{
     background:
       linear-gradient(rgba(29,40,40,.6),rgba(29,40,40,.6)),
-      url("photos/background.jpg") center / cover no-repeat;
+      url("photos/background-dark.jpg") center / cover no-repeat;
   }
 }
 @media (max-width:700px){
   body::before{
     background:
       linear-gradient(rgba(255,246,249,.55),rgba(255,246,249,.55)),
-      url("photos/background.jpg") center / cover no-repeat;
+      url("photos/background-mobile.jpg") center / cover no-repeat;
   }
 }
