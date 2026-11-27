@@ -45,11 +45,11 @@ Love, qash ♥`,
   // e.g. file: "photos/beach.jpg". Leave file empty ("") to show an "Add photo" frame.
   // You can add more frames by copying a line.
   photos: [
-    { file: "", caption: "Us" },
-    { file: "", caption: "Favourite day" },
-    { file: "", caption: "That smile" },
-    { file: "", caption: "Adventures" },
-    { file: "", caption: "Silly us" },
-    { file: "", caption: "Always" }
+    { file: "matildabay.jpg", caption: "Us" },
+    { file: "dinner.jpg", caption: "Cutiee dinner" },
+    { file: "iceskating.jpg", caption: "Freezing fun" },
+    { file: "kangaroos.jpg", caption: "Adventures" },
+    { file: "silly.jpg", caption: "Silly us" },
+    { file: "minigolf.jpg", caption: "Minigolf!" }
   ]
 };
