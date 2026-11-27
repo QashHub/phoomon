@@ -42,8 +42,12 @@ h1 span{display:inline-block;background:linear-gradient(transparent 60%,var(--ye
 .env .front{position:absolute;inset:0;background:var(--pink);clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);border-radius:10px;z-index:3;pointer-events:none}
 .env .flap{position:absolute;left:0;right:0;top:0;height:60%;background:var(--pink-d);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .5s;z-index:4;filter:brightness(1.06)}
 .env.open .flap{transform:rotateX(180deg);z-index:0}
-.env.open .letter{transform:translateY(-70%);height:150%;z-index:2}
-.env.open{margin-bottom:250px;margin-top:80px;height:220px}
+.env.open .letter{transform:translateY(-45%);z-index:2}
+.sheet{display:none;background:#fffdf5;color:#2C3B3B;font-family:'Caveat',cursive;font-size:clamp(1.4rem,4.5vw,1.75rem);line-height:1.35;text-align:left;padding:26px 24px;margin:18px auto 0;border-radius:8px;max-height:58vh;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.2);border-left:6px solid var(--pink)}
+.sheet.on{display:block;animation:unfold .6s ease}
+.sheet p{margin:0 0 .7em}
+@keyframes unfold{from{opacity:0;transform:translateY(30px) scale(.94)}to{opacity:1;transform:none}}
+#fold{display:none}
 .env .letter p{margin:0 0 .5em}
 .hint{color:var(--muted);margin:10px 0 0}
 /* album */

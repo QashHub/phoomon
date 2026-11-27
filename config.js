@@ -2,7 +2,7 @@
 
 var CONFIG = {
   // Her name, shown in the big heading: "Happy Birthday, <name>!"
-  name: "Beautiful",
+  name: "Phoomon",
 
   // The letter. Each line is its own paragraph. Add or remove lines freely.
   letter: [

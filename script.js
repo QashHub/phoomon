@@ -3,7 +3,9 @@ var LETTER = CONFIG.letter;
 
 var $ = function(s){return document.querySelector(s)};
 $('#nm').textContent = NAME;
-$('#letter').innerHTML = LETTER.map(function(l){return '<p>'+l+'</p>'}).join('');
+var LETTER_HTML = LETTER.map(function(l){return '<p>'+l+'</p>'}).join('');
+$('#letter').innerHTML = LETTER_HTML;
+$('#sheet').innerHTML = LETTER_HTML;
 var seen = {};
 function mark(id){
   seen[id]=1; document.querySelector('[data-m="'+id+'"]').classList.add('seen');
@@ -13,14 +15,23 @@ document.querySelectorAll('.tile').forEach(function(t){
   t.onclick=function(){ $('#'+t.dataset.m).classList.add('on'); mark(t.dataset.m); };
 });
 document.querySelectorAll('.modal').forEach(function(m){
-  m.onclick=function(e){ if(e.target===m||e.target.classList.contains('x')) m.classList.remove('on'); };
+  m.onclick=function(e){ if(e.target===m||e.target.classList.contains('x')){ m.classList.remove('on'); if(m.id==='m1') fold(); } };
 });
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') document.querySelectorAll('.modal').forEach(function(m){m.classList.remove('on')}); });
 
 // envelope
 var env=$('#env');
-function toggleEnv(){ env.classList.toggle('open'); $('#envhint').textContent = env.classList.contains('open')?'Tap again to close':'Tap the envelope'; }
-env.onclick=toggleEnv; env.onkeydown=function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleEnv();} };
+function openLetter(){
+  env.classList.add('open'); $('#envhint').textContent='';
+  setTimeout(function(){ env.style.display='none'; $('#sheet').classList.add('on'); $('#fold').style.display='inline-block'; },1100);
+}
+function fold(){
+  $('#sheet').classList.remove('on'); $('#sheet').scrollTop=0; $('#fold').style.display='none';
+  env.style.display=''; env.classList.remove('open'); $('#envhint').textContent='Tap the envelope';
+}
+env.onclick=function(){ if(!env.classList.contains('open')) openLetter(); };
+env.onkeydown=function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); if(!env.classList.contains('open')) openLetter(); } };
+$('#fold').onclick=fold;
 
 // album
 var cur=null, file=$('#file');
