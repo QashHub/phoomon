@@ -13,7 +13,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-
 h1,h2{font-family:'Fraunces',Georgia,serif;margin:0}
 main{max-width:980px;margin:0 auto;padding:40px 20px 60px;text-align:center}
 h1{font-size:clamp(2.4rem,8vw,4.6rem);line-height:1.05;font-weight:800;color:var(--ink)}
-h1 span{display:inline-block;background:linear-gradient(transparent 60%,var(--yellow) 60%);padding:0 .15em}
+h1 span{display:inline-block}
 .sub{color:var(--muted);font-size:1.1rem;margin:14px 0 36px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
 .tile{border:0;border-radius:28px;padding:30px 20px 24px;cursor:pointer;font:inherit;color:#2C3B3B;position:relative;transition:transform .25s}
@@ -74,3 +74,23 @@ h1 span{display:inline-block;background:linear-gradient(transparent 60%,var(--ye
 .conf{position:fixed;top:-12px;width:10px;height:14px;z-index:40;pointer-events:none;animation:cf linear forwards}
 @keyframes cf{to{transform:translateY(110vh) rotate(720deg)}}
 @media (prefers-reduced-motion:reduce){.flame,.conf{animation:none}.tile,.pol,.env .letter,.env .flap{transition:none}}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;
+  background:
+    linear-gradient(rgba(255,246,249,.55),rgba(255,246,249,.55)),
+    url("photos/background.jpg") center / cover no-repeat;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) body::before{
+    background:
+      linear-gradient(rgba(29,40,40,.6),rgba(29,40,40,.6)),
+      url("photos/background.jpg") center / cover no-repeat;
+  }
+}
+@media (max-width:700px){
+  body::before{
+    background:
+      linear-gradient(rgba(255,246,249,.55),rgba(255,246,249,.55)),
+      url("photos/background.jpg") center / cover no-repeat;
+  }
+}
